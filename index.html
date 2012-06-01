@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>TweetBoxen</title>
+    <meta name="viewport" content="user-scalable=1.0,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="apple-touch-icon-precomposed" href="icon_072.png">
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+    body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+        background-color: #636563;
+    }
+    </style>
+    <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css" type="text/css" />
+    <script src="jquery-1.7.1.min.js"></script>
+    <script src="bootstrap/js/bootstrap-modal.js"></script>
+
+    <script type="text/javascript" src="http://use.typekit.com/xff7lnt.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+    <script src="twitterbox.js"></script>
+    <script src="main.js"></script>
+
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-70863-16']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+    </script>
+
+</head>
+
+<body onload="init()">
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="brand" href="#">TweetBoxen</a>
+            <ul class="nav pull-right">
+            <li class="divider-vertical"></li>
+            <li><a href="#" id="addButton">Add Search</a></li>
+            <!--
+            <li class="divider-vertical"></li>
+            <li><img src="oalong.png"></li>
+          -->
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="container" id="mainContainer">
+</div>
+
+<div class="modal" id="addSearchModal" style="display:none">
+  <div class="modal-header">
+    <a class="close" data-dismiss="modal">x</a>
+    <h3>Twitter Search Term</h3>
+  </div>
+  <div class="modal-body">
+    <p><input type="text" id="twittersearchterm" class="span3"></p>
+  </div>
+  <div class="modal-footer">
+    <a href="#" class="btn btn-primary" id="addTermButton">Add</a>
+    <a href="#" class="btn" data-dismiss="modal">Close</a>
+  </div>
+</div>
+
+<div class="modal" id="introModal" style="display:none">
+  <div class="modal-header">
+    <a class="close" data-dismiss="modal">x</a>
+    <h3 style="font-family:nimbus-sans-extended">TweetBoxen</h3>
+  </div>
+  <div class="modal-body">
+      <img src="oatall.png" title="Powered by OpenAmplify" style="float:right">
+      <p>
+          TweetBoxen is a simple way to monitor the "mood" of various Twitter searches.
+          Click the <b>Add Search</b> link to add your search. We will then begin searching
+          for, and parsing the content of, results for that search. The mood analysis is provided
+          by <a href="http://www.openamplify.com" target="_new">OpenAmplify</a>. Created by 
+          <a href="http://www.raymondcamden.com" target="_new">Raymond Camden</a>.
+      </p>
+  </div>
+  <div class="modal-footer">
+    <a href="#" class="btn btn-primary" data-dismiss="modal">Get Started!</a>
+  </div>
+</div>
+
+</body>
+</html>

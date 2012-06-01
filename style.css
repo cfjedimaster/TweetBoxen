@@ -1,0 +1,39 @@
+.twitterbox {
+    width: 20%;
+    height: 100px;
+    float: left;
+    margin: 5px;
+    padding: 10px;
+}
+
+.neutral {
+    background-color: whitesmoke;
+}
+
+.negative {
+    background-color: red;
+}
+.negative_medium {
+    background-color: #FF3D3D;
+}
+.negative_light {
+    background-color: #ff7A7A;
+}
+
+.positive {
+    background-color: green;
+}
+.positive_medium {
+    background-color: #80FF00;
+}
+
+.positive_light {
+    background-color: #CCFF00;
+}
+
+.trash {
+    position: relative;
+    bottom: 5px;
+    right: -200px;
+    display: none;
+}
