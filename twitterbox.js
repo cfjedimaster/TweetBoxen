@@ -91,12 +91,12 @@
                 console.log(context.blurbs.length + " items left for "+context.term);
                 $.getScript(APIURL + "&inputText="+escape(text),function(data,status) {
                     var mood = amplifyOutput.StylesResponse.StylesReturn.Styles.Polarity.Mean.Value;
-                    console.log("mood "+mood);
                     context.polaritytotal+=mood;
                     context.items++;
                     context.polarity = (context.polaritytotal/context.items).toFixed(5);
                     console.log(context.items+ " items and pol "+context.polarity);
-                    if(context.blurbs.length) doOA();
+                    context.draw(context);
+                    if(context.blurbs.length) setTimeout(doOA,500);
                });
 
             }
@@ -104,23 +104,6 @@
             var url = "http://search.twitter.com/search.json?q="+escape(context.term)+"&since_id="+context.lastid+"&callback=?";
             $.getJSON(url,{}, function(res,code) {
 
-                /*
-                for(var i=0; i<res.results.length; i++) {
-                    var text = res.results[i].text;
-                    if(text.length > 5) {
-                        $.getScript(APIURL + "&inputText="+escape(text),function(data,status) {
-                            var mood = amplifyOutput.StylesResponse.StylesReturn.Styles.Polarity.Mean.Value;
-                            if(mood) {
-                                console.log("mood "+mood);
-                                context.polaritytotal+=mood;
-                                context.items++;
-                                context.polarity = (context.polaritytotal/context.items).toFixed(5);
-                                console.log(context.items);
-                            }
-                        });
-                    }
-                }
-                */
                 for(var i=0; i<res.results.length; i++) {
                     if(res.results[i].text.length > 5) context.blurbs.push(res.results[i].text);
                 }
@@ -131,7 +114,7 @@
                 context.draw(context);
             },"jsonp");
 
-            if(context.alive) setTimeout(heartbeat,20000);
+            if(context.alive) setTimeout(heartbeat,10000);
         };
 
     };

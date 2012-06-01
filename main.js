@@ -59,11 +59,8 @@ function removeSearch(value) {
         try {
             terms = JSON.parse(localStorage.previousTerms);
         } catch(e) {}
-        console.log(terms);
-        console.log(value);
-        console.log(terms.indexOf(value));
         if(terms.indexOf(value) !== -1) {
-            terms.splice(terms.indexOf(value), 1);
+            terms.slice(terms.indexOf(value), 1);
             localStorage.previousTerms = JSON.stringify(terms);
         }
     }
